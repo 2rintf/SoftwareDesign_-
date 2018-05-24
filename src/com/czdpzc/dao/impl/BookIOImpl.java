@@ -54,18 +54,56 @@ public class BookIOImpl implements BookIODAO{
 
     }
 
+    /**
+     * 获取应归还日期，用于计算欠款
+     * @param conn
+     * @param bb
+     * @return
+     * @throws SQLException
+     */
     @Override
     public Date getBackDate(Connection conn, BooksBorrow bb) throws SQLException {
-        return null;
+        ResultSet rs = null;
+
+        String sql = "SELECT back_date FROM tbl_borrow WHERE book_id = ?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+
+        ps.setLong(1,bb.getId());
+
+        rs = ps.executeQuery();
+        return rs.getDate(1);
     }
 
+
+    /**
+     * 用于更新欠款信息，根据user_id
+     * @param conn
+     * @param user
+     * @param bill
+     * @throws SQLException
+     */
     @Override
     public void updateBill(Connection conn, Users user, double bill) throws SQLException {
+
+        String sql = "UPDATE user_table SET bill = ? WHERE user_id = ?";
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setDouble(1,bill);
+        ps.setLong(2,user.getId());
+
+        ps.execute();
 
     }
 
     @Override
     public void deleteBorrowRecord(Connection conn, BooksBorrow bb) throws SQLException {
+
+        String sql = "DELETE FROM tbl_borrow WHERE book_id = ?";
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setLong(1,bb.getId());
+
+        ps.execute();
 
     }
 }
