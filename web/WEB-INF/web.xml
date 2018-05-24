@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!--<servlet>-->
+        <!--<servlet-name>HelloServlet</servlet-name>-->
+        <!--<servlet-class>com.czdpzc.servlet.HelloServlet</servlet-class>-->
+    <!--</servlet>-->
+
+    <!--<servlet>-->
+        <!--<servlet-name>LoginServlet</servlet-name>-->
+        <!--<servlet-class>com.czdpzc.servlet.LoginServlet</servlet-class>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>LoginServlet</servlet-name>-->
+        <!--<url-pattern>/LoginServlet</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>HelloServlet</servlet-name>-->
+        <!--<url-pattern>/Hello</url-pattern>-->
+    <!--</servlet-mapping>-->
+    <!-- 项目主页 -->
+    <welcome-file-list>
+        <welcome-file>/15/login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>Check</servlet-name>
+        <servlet-class>com.czdpzc.servlet.CheckServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Check</servlet-name>
+        <url-pattern>/CheckServlet</url-pattern>
+    </servlet-mapping>
+
+    <!--<servlet>-->
+        <!--<servlet-name>Login16</servlet-name>-->
+        <!--<servlet-class>com.czdpzc.servlet.LoginServlet16</servlet-class>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>Login16</servlet-name>-->
+        <!--<url-pattern>/LoginServlet16</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <!--<servlet>-->
+        <!--<servlet-name>Login17</servlet-name>-->
+        <!--<servlet-class>com.czdpzc.servlet.LoginServlet17</servlet-class>-->
+    <!--</servlet>-->
+
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>Login17</servlet-name>-->
+        <!--<url-pattern>/LoginServlet17</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>Logout17</servlet-name>
+        <servlet-class>com.czdpzc.servlet.LogoutServlet17</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Logout17</servlet-name>
+        <url-pattern>/LogoutServlet17</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.czdpzc.filter.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--<filter>-->
+        <!--<filter-name>PermissionFilter</filter-name>-->
+        <!--<filter-class>com.czdpzc.filter.PermissionFilter</filter-class>-->
+    <!--</filter>-->
+
+    <!--<filter-mapping>-->
+        <!--<filter-name>PermissionFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+    
+
+  
+</web-app>
