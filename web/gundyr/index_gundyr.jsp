@@ -10,8 +10,9 @@
 <head>
     <title>柜台管理首页</title>
 </head>
-<body>
-这是柜台管理首页。<br/>
+<%--<body>--%>
+
+<%--这是柜台管理首页。<br/>--%>
 <%
     String flag="";
     Object obj = session.getAttribute("flag");
@@ -21,15 +22,26 @@
     }
     if (flag.equals("login_success_gundyr")){
 %>
-<a href="<%= request.getContextPath()%>/LogoutServlet17">退出</a>
+
+<frameset rows = "20%,*">
+    <frame src = "/gundyr/index_top.jsp">
+    <frameset cols="20%,*">
+        <frame src = "/gundyr/index_left.jsp">
+        <frame src = "/gundyr/index_right.jsp" name="index_right">
+    </frameset>
+</frameset>
+
+
+
+
 <%
 }
 else{
 %>
-<a href="<%= request.getContextPath()%>/15/login.jsp">登陆</a>
+<a href="<%= request.getContextPath()%>/15/login.jsp">登陆</a><br/>
 <%
 
     }
 %>
-</body>
+<%--</body>--%>
 </html>

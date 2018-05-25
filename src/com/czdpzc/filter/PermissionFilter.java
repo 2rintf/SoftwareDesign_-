@@ -29,7 +29,7 @@ public class PermissionFilter implements Filter {
         String flag = (String)session.getAttribute("flag");
 
         //如果用户访问的是index、login或者执行登陆操作，则把请求转发给下一个组件进行处理
-        if (servletPath != null && (servletPath.equals("/15/login.jsp"))) {
+        if (servletPath != null && (servletPath.equals("/15/login.jsp") || servletPath.equals("/CheckServlet"))) {
 
             chain.doFilter(request, response);
 

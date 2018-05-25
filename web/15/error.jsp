@@ -25,8 +25,8 @@
 <body>
 
 <div id = message>
-    login FAILED!<BR>
-    tips:<br>
+    登陆失败！<BR>
+    tips:
     <%
         Object obj = request.getAttribute("msg");
         if (obj!=null){
@@ -36,6 +36,7 @@
             out.println("空");
         }
     %>
+    <br>
     submit info:<br>
     用户名：<%= request.getParameter("uname")%><br>
     密码：<%= request.getParameter("upwd")%><br>

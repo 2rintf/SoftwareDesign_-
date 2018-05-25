@@ -47,6 +47,9 @@ public class CheckServlet extends HttpServlet {
             if (permission == 1) {
                 forward = "/normal/index_normal.jsp";
                 request.getSession().setAttribute("flag","login_success_normal");
+
+                //将登陆用户的信息放在session可供调用，主要是用于学生和老师用户的查询界面
+                request.getSession().setAttribute("user_login",us);
             } else if (permission == 2) {
                 forward = "/gundyr/index_gundyr.jsp";
                 request.getSession().setAttribute("flag","login_success_gundyr");
@@ -56,7 +59,7 @@ public class CheckServlet extends HttpServlet {
             } else {
                 request.setAttribute("msg", "用户名或者密码错误！请重新登陆");
                 request.getSession().setAttribute("flag","login_error");
-                forward = "/15/login.jsp";
+                forward = "/15/error.jsp";
             }
 
             rd  =request.getRequestDispatcher(forward);
