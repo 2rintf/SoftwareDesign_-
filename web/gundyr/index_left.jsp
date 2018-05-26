@@ -12,7 +12,7 @@
 <body>
 <a href="<%= request.getContextPath()%>/gundyr/borrowback.jsp" target="index_right">借/还书管理</a><br/>
 <a href="<%= request.getContextPath()%>/gundyr/bill_manage.jsp" target="index_right">欠款管理</a><br/>
-<a href="<%= request.getContextPath()%>/LogoutServlet17" target="">退出</a><br/>
+<a href="<%= request.getContextPath()%>/LogoutServlet17" target="_top">退出</a><br/>
 
 
 </body>

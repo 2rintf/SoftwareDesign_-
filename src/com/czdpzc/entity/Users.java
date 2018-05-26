@@ -1,5 +1,7 @@
 package com.czdpzc.entity;
 
+import java.util.List;
+
 /**
  * 普通用户的DTO类
  * 属性：用户ID、用户名、密码、欠款、权限
@@ -9,6 +11,7 @@ public class Users extends IdEntity{
     private String passWord;
     private double bill;
     private String permi;
+    private List<BooksBorrow> list = null;
 
     public String getUserName() {
         return userName;
@@ -42,6 +45,14 @@ public class Users extends IdEntity{
         this.permi = permi;
     }
 
+    public List<BooksBorrow> getList() {
+        return list;
+    }
+
+    public void setList(List<BooksBorrow> list) {
+        this.list = list;
+    }
+
     @Override
     public String toString() {
         return "Users{" +
@@ -49,6 +60,7 @@ public class Users extends IdEntity{
                 ", passWord='" + passWord + '\'' +
                 ", bill=" + bill +
                 ", permi='" + permi + '\'' +
+                ", list=" + list +
                 ", id=" + id +
                 '}';
     }

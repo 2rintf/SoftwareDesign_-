@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * @deprecated
  * 此SERVLET的逻辑为：
  *      1.获取表单输入内容，如果为空，跳login；不为空，则比较是否匹配
  *      2.若不匹配，设立login_error的flag，并跳转回login

@@ -25,7 +25,7 @@
 
 <frameset rows = "20%,*">
     <frame src = "/gundyr/index_top.jsp">
-    <frameset cols="20%,*">
+    <frameset cols="10%,*">
         <frame src = "/gundyr/index_left.jsp">
         <frame src = "/gundyr/index_right.jsp" name="index_right">
     </frameset>
@@ -38,7 +38,7 @@
 }
 else{
 %>
-<a href="<%= request.getContextPath()%>/15/login.jsp">登陆</a><br/>
+<a href="<%= request.getContextPath()%>/15/login.jsp" target="_top">登陆</a><br/>
 <%
 
     }

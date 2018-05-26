@@ -15,6 +15,7 @@ import java.io.IOException;
 
 /**
  * 此servlet实现控制器的效果，根据CheckUserService的校验返回值，把用户导至相应页面
+ * @author czdpzc
  */
 @WebServlet(name = "CheckServlet")
 public class CheckServlet extends HttpServlet {
@@ -26,6 +27,9 @@ public class CheckServlet extends HttpServlet {
         //获取表单信息
         String uname = request.getParameter("uname");
         String upwd = request.getParameter("upwd");
+
+        //用于欢迎界面显示用户名字
+        request.getSession().setAttribute("uname",uname);
 
         String returnUri =request.getParameter("return_uri");
 
@@ -50,6 +54,7 @@ public class CheckServlet extends HttpServlet {
 
                 //将登陆用户的信息放在session可供调用，主要是用于学生和老师用户的查询界面
                 request.getSession().setAttribute("user_login",us);
+
             } else if (permission == 2) {
                 forward = "/gundyr/index_gundyr.jsp";
                 request.getSession().setAttribute("flag","login_success_gundyr");

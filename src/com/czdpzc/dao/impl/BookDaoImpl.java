@@ -2,6 +2,8 @@ package com.czdpzc.dao.impl;
 
 import com.czdpzc.dao.BookDAO;
 import com.czdpzc.entity.Books;
+import com.czdpzc.entity.BooksBorrow;
+import com.czdpzc.entity.Users;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -46,7 +48,7 @@ public class BookDaoImpl implements BookDAO {
      * @throws SQLException
      */
     @Override
-    public void update(Connection conn, Long id, Books book) throws SQLException {
+    public void update(Connection conn, long id, Books book) throws SQLException {
 
         String sql = "UPDATE tbl_book SET book_name = ?, book_class = ?," +
                 "book_pub = ?, book_writer = ? WHERE book_id = ?";
@@ -102,6 +104,26 @@ public class BookDaoImpl implements BookDAO {
         ps.setString(3,"%"+book.getBookPub()+"%");
         ps.setString(4,"%"+book.getBookWriter()+"%");
 
+
+        return ps.executeQuery();
+    }
+
+    /**
+     * 查询借阅书籍的信息，图书id或user_id均可
+     * @param conn
+     * @param bb
+     * @param us
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public ResultSet getInfoFromBorrow(Connection conn, BooksBorrow bb, Users us) throws SQLException{
+
+        String sql = "SELECT book_name,borrow_date,back_date,book_id  FROM tbl_borrow WHERE book_id = ? OR user_id = ?";
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setLong(1,bb.getId());
+        ps.setLong(2,us.getId());
 
         return ps.executeQuery();
     }

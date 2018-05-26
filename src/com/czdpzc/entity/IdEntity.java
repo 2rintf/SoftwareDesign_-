@@ -2,13 +2,13 @@ package com.czdpzc.entity;
 
 public abstract class IdEntity {
 
-    protected Long id;
+    protected long id;
 
-    public Long getId(){
+    public long getId(){
         return id;
     }
 
-    public void setId(Long id){
+    public void setId(long id){
         this.id = id;
     }
 }

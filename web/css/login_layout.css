@@ -2,5 +2,19 @@
 body {
     color: #000;
     font-size: 14px;
+    font-family: monospace;
     margin: 20px auto;
 }
+
+table{
+    border: 1px;
+    border-color: silver;
+    mso-cellspacing: 0px;
+    padding: 100px;
+    align-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 17px;
+
+}
+

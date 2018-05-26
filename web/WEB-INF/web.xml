@@ -3,30 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <!--<servlet>-->
-        <!--<servlet-name>HelloServlet</servlet-name>-->
-        <!--<servlet-class>com.czdpzc.servlet.HelloServlet</servlet-class>-->
-    <!--</servlet>-->
 
-    <!--<servlet>-->
-        <!--<servlet-name>LoginServlet</servlet-name>-->
-        <!--<servlet-class>com.czdpzc.servlet.LoginServlet</servlet-class>-->
-    <!--</servlet>-->
 
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>LoginServlet</servlet-name>-->
-        <!--<url-pattern>/LoginServlet</url-pattern>-->
-    <!--</servlet-mapping>-->
 
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>HelloServlet</servlet-name>-->
-        <!--<url-pattern>/Hello</url-pattern>-->
-    <!--</servlet-mapping>-->
     <!-- 项目主页 -->
     <welcome-file-list>
         <welcome-file>/15/login.jsp</welcome-file>
     </welcome-file-list>
 
+    <!--登陆校验-->
     <servlet>
         <servlet-name>Check</servlet-name>
         <servlet-class>com.czdpzc.servlet.CheckServlet</servlet-class>
@@ -37,26 +22,29 @@
         <url-pattern>/CheckServlet</url-pattern>
     </servlet-mapping>
 
-    <!--<servlet>-->
-        <!--<servlet-name>Login16</servlet-name>-->
-        <!--<servlet-class>com.czdpzc.servlet.LoginServlet16</servlet-class>-->
-    <!--</servlet>-->
+    <servlet>
+        <servlet-name>Borrow</servlet-name>
+        <servlet-class>com.czdpzc.servlet.BorrowServlet</servlet-class>
+    </servlet>
 
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>Login16</servlet-name>-->
-        <!--<url-pattern>/LoginServlet16</url-pattern>-->
-    <!--</servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>Borrow</servlet-name>
+        <url-pattern>/BorrowServlet</url-pattern>
+    </servlet-mapping>
 
-    <!--<servlet>-->
-        <!--<servlet-name>Login17</servlet-name>-->
-        <!--<servlet-class>com.czdpzc.servlet.LoginServlet17</servlet-class>-->
-    <!--</servlet>-->
+    <servlet>
+        <servlet-name>GetInfo</servlet-name>
+        <servlet-class>com.czdpzc.servlet.GetInfoServlet</servlet-class>
+    </servlet>
 
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>Login17</servlet-name>-->
-        <!--<url-pattern>/LoginServlet17</url-pattern>-->
-    <!--</servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>GetInfo</servlet-name>
+        <url-pattern>/GetInfoServlet</url-pattern>
+    </servlet-mapping>
 
+
+
+    <!--退出登陆-->
     <servlet>
         <servlet-name>Logout17</servlet-name>
         <servlet-class>com.czdpzc.servlet.LogoutServlet17</servlet-class>
@@ -66,6 +54,11 @@
         <servlet-name>Logout17</servlet-name>
         <url-pattern>/LogoutServlet17</url-pattern>
     </servlet-mapping>
+
+
+
+
+    <!--编码方式的过滤器，设置为UTF-8-->
 
     <filter>
         <filter-name>EncodingFilter</filter-name>
@@ -82,6 +75,7 @@
     </filter-mapping>
 
 
+    <!--权限校验，保证用户登陆其权限相对应的页面，而无法直接进入非权限对应界面-->
     <filter>
         <filter-name>PermissionFilter</filter-name>
         <filter-class>com.czdpzc.filter.PermissionFilter</filter-class>

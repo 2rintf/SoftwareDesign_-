@@ -7,17 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
-/**
- * 登出的SERVLET
- * @author czdpzc
- */
-@WebServlet(name = "LogoutServlet17")
-public class LogoutServlet17 extends HttpServlet {
+@WebServlet(name = "BorrowServlet")
+public class BorrowServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        request.getSession().invalidate();//删除Session对象
-        response.sendRedirect(request.getContextPath()+"/15/login.jsp" );;
 
 
 

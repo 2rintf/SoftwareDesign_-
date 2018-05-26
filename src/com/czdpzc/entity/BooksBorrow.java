@@ -3,16 +3,25 @@ package com.czdpzc.entity;
 import java.sql.Date;
 
 public class BooksBorrow extends IdEntity {
-    private Long user_id;
+    private long user_id;
     private Date borrow_date;
     private Date back_date;
-//    private double bill;
+    private String book_name;
 
-    public Long getUser_id() {
+    public String getBook_name() {
+        return book_name;
+    }
+
+    public void setBook_name(String book_name) {
+        this.book_name = book_name;
+    }
+    //    private double bill;
+
+    public long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Long user_id) {
+    public void setUser_id(long user_id) {
         this.user_id = user_id;
     }
 

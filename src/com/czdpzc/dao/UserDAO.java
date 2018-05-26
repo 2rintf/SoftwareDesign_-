@@ -13,11 +13,13 @@ public interface UserDAO {
     //定义接口
     public void save(Connection conn,Users user) throws SQLException;
 
-    public void update(Connection conn, Long id,Users user) throws SQLException;
+    public void update(Connection conn, long id,Users user) throws SQLException;
 
-//    public void billUpdate(Connection conn,Long id) throws SQLException;
+//    public void billUpdate(Connection conn,long id) throws SQLException;
 
     public void delete(Connection conn,Users user) throws SQLException;
 
     public ResultSet get(Connection conn,Users user) throws SQLException;
+
+    public ResultSet getUserInfo(Connection conn, Users user) throws SQLException;
 }

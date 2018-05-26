@@ -44,7 +44,7 @@ public class UserDaoImpl implements UserDAO {
      * @throws SQLException
      */
     @Override
-    public void update(Connection conn, Long id, Users user) throws SQLException {
+    public void update(Connection conn, long id, Users user) throws SQLException {
 
         String sql = "UPDATE user_tbl SET user_name = ?,password = ?," +
                 "permission = ? WHERE user_id = ?";
@@ -67,7 +67,7 @@ public class UserDaoImpl implements UserDAO {
      * @param id
      * @throws SQLException
      */
-    public void billUpdate(Connection conn, Long id) throws SQLException {
+    public void billUpdate(Connection conn, long id) throws SQLException {
         String sql = "UPDATE user_tbl SET bill = 0 WHERE user_id = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
@@ -123,6 +123,7 @@ public class UserDaoImpl implements UserDAO {
      * @return
      * @throws SQLException
      */
+    @Override
     public ResultSet getUserInfo(Connection conn, Users user) throws SQLException{
 
         String sql = "SELECT user_name,bill,permission FROM user_tbl WHERE user_id = ?";

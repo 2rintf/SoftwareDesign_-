@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>login</title>
-    <link href="/css/login_layout.css" rel="stylesheet" type="text/css">
+    <%--<link href="/css/login_layout.css" rel="stylesheet" type="text/css">--%>
 
     <script type="text/javascript">
         function check(form) {
@@ -32,7 +32,7 @@
 
 <form action="<%= request.getContextPath()%>/CheckServlet" method="post" name="loginForm">
 
-    <table border="1" cellspacing="0" cellpadding="5" bordercolor = "silver" align="center">
+    <table align="center" border = "1" bordercolor = "silver" cellpadding="5" cellspacing="0" >
         <tr>
             <td colspan="2"align="center" bgcolor="#f0ffff">
                 用户登陆
