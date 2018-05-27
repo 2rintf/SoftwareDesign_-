@@ -9,6 +9,9 @@ import java.awt.print.Book;
 import java.sql.*;
 
 public class BookIOImpl implements BookIODAO{
+
+
+
     @Override
     public void updateBorrowId(Connection conn, BooksBorrow bb, Users user) throws SQLException {
 
@@ -23,7 +26,7 @@ public class BookIOImpl implements BookIODAO{
     }
 
     /**
-     * 需要的变量：图书ID、用户ID、图书借阅日期、可借阅日期（由user查表得到）
+     * 需要的变量：图书ID、用户ID、图书借阅日期、可借阅日期（由user查表得到权限）
      * @param conn
      * @param bb
      * @param user
@@ -33,22 +36,16 @@ public class BookIOImpl implements BookIODAO{
     public void insertBorrowRecord(Connection conn, BooksBorrow bb, Users user) throws SQLException {
 
         //insert into tbl_user (name,password,email,date,date_back) values("kobe", "24242424","kobe@24.com",now(),date_add(now(),interval 5 day));
-        String sql = "INSERT INTO tbl_borrow (book_id, user_id, borrow_date, back_date) VALUES (?,?,?,date_add(?,INTERVAL ? DAY ))";
+        String sql = "INSERT INTO tbl_borrow (book_id, user_id, borrow_date, back_date,book_name) VALUES (?,?,?,?,?)";
 
-        int day = 0;
-        if (user.getPermi().equals("stu")){
-            day = 60;
-        }else{
-            day = 90;
-        }
 
         PreparedStatement ps = conn.prepareStatement(sql);
 
         ps.setLong(1,bb.getId());
         ps.setLong(2,user.getId());
         ps.setDate(3,bb.getBorrow_date());
-        ps.setDate(4,bb.getBorrow_date());
-        ps.setInt(5,day);
+        ps.setDate(4,bb.getBack_date());
+        ps.setString(5,bb.getBook_name());
 
         ps.execute();
 
@@ -104,6 +101,45 @@ public class BookIOImpl implements BookIODAO{
         ps.setLong(1,bb.getId());
 
         ps.execute();
+
+    }
+
+    /**
+     * @deprecated
+     * 还未完成，想法是保证每一本书图书馆都要留存一本，不能外接，即检查是否为最后一本。
+     *
+     * @param conn
+     * @param bb
+     * @return
+     * @throws SQLException
+     */
+    public boolean ifBookCanBorrow(Connection conn,BooksBorrow bb) throws SQLException{
+//        String sql = "SELECT * FROM tbl_book WHERE book_id = ?";
+//
+//        PreparedStatement ps = conn.prepareStatement(sql);
+//        ps.setLong(1,bb.getId());
+//
+//        ResultSet rs = ps.executeQuery();
+//
+//        if (rs.next()){
+//            return true;
+//        }else {
+//            return false;
+//        }
+        return true;
+    }
+
+    @Override
+    public ResultSet getBorrowBookName(Connection conn, BooksBorrow bb) throws SQLException{
+
+        String sql = "SELECT book_name FROM tbl_book WHERE book_id = ?";
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setLong(1,bb.getId());
+
+
+
+        return ps.executeQuery();
 
     }
 }

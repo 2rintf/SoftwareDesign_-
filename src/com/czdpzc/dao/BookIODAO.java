@@ -5,6 +5,7 @@ import com.czdpzc.entity.Users;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface BookIODAO {
@@ -33,4 +34,8 @@ public interface BookIODAO {
     public void updateBill(Connection conn, Users user, double bill) throws SQLException;
 
     public void deleteBorrowRecord(Connection conn, BooksBorrow bb) throws SQLException;
+
+    public boolean ifBookCanBorrow(Connection conn, BooksBorrow bb) throws SQLException;
+
+    public ResultSet getBorrowBookName(Connection conn, BooksBorrow bb) throws SQLException;
 }

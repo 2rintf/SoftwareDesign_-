@@ -20,4 +20,6 @@ public interface BookDAO {
     public ResultSet get(Connection conn, Books book) throws SQLException;
 
     public ResultSet getInfoFromBorrow(Connection conn, BooksBorrow bb,Users us) throws SQLException;
+
+
 }

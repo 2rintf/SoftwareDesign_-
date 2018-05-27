@@ -56,6 +56,15 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>BackServlet</servlet-name>
+        <servlet-class>com.czdpzc.servlet.BackServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BackServlet</servlet-name>
+        <url-pattern>/BackServlet</url-pattern>
+    </servlet-mapping>
 
 
     <!--编码方式的过滤器，设置为UTF-8-->
