@@ -25,6 +25,18 @@ public class BookIOImpl implements BookIODAO{
         ps.execute();
     }
 
+    @Override
+    public void updateBorrowIdToNull(Connection conn, BooksBorrow bb) throws SQLException {
+
+        String sql = "UPDATE tbl_book SET borrow_id = NULL WHERE book_id = ?";
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+
+        ps.setLong(1,bb.getId());
+
+        ps.execute();
+    }
+
     /**
      * 需要的变量：图书ID、用户ID、图书借阅日期、可借阅日期（由user查表得到权限）
      * @param conn

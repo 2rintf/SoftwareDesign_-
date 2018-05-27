@@ -12,54 +12,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%--<style type="text/css">--%>
-        <%--#customers,#borrowT,#backT--%>
-        <%--{--%>
-            <%--font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;--%>
-            <%--/*width:100%;*/--%>
-            <%--border-collapse:collapse;--%>
-        <%--}--%>
 
-        <%--#customers td, #customers th, #borrowT th, #backT th--%>
-        <%--{--%>
-            <%--font-size:1em;--%>
-            <%--border:1px solid #98bf21;--%>
-            <%--padding:3px 7px 2px 7px;--%>
-        <%--}--%>
-
-        <%--#customers th--%>
-        <%--{--%>
-            <%--font-size:1.1em;--%>
-            <%--text-align:left;--%>
-            <%--padding-top:5px;--%>
-            <%--padding-bottom:4px;--%>
-            <%--background-color:#A7C942;--%>
-            <%--color:#ffffff;--%>
-        <%--}--%>
-
-        <%--#borrowT {--%>
-            <%--position: relative;--%>
-            <%--left:+20px;--%>
-            <%--top: +20px;--%>
-            <%--box-shadow: 2px 2px 9px 0px black;--%>
-        <%--}--%>
-        <%--#backT {--%>
-            <%--position: relative;--%>
-            <%--left:+20px;--%>
-            <%--top: +20px;--%>
-            <%--box-shadow: 2px 2px 9px 0px black;--%>
-        <%--}--%>
-
-
-
-    <%--</style>--%>
     <link rel="stylesheet" href="/css/borrow_back.css">
     <script type="text/javascript">
         function check(form) {
-            if (document.forms.borrow_form.borrow_book_id.value==""){
-                alert("请输入图书ID！");
+            if (document.forms.borrow_form.borrow_book_id.value==""||document.forms.borrow_form.borrow_book_id.value<=1000||document.forms.borrow_form.borrow_book_id.value>3000){
+                alert("请输入图书ID！请输入图书ID！范围在1000~2999");
                 document.forms.borrow_form.borrow_book_id.focus();
                 return false;
+            }else if (document.forms.back_form.back_book_id.value == ""|| document.forms.back_form.back_book_id.value<=1000||document.forms.back_form.back_book_id.value>3000){
+                alert("请输入图书ID！范围在1000~2999");
+                document.forms.back_form.back_book_id.focus();
             }
         }
     </script>
@@ -81,29 +44,6 @@
 
 %>
 
-<%--<table id="customers"align="center" border = "1" bordercolor = "silver" cellpadding="5" cellspacing="0">--%>
-    <%--<tr>--%>
-        <%--<td bgcolor="#faebd7">name</td>--%>
-        <%--<td colspan="4" align="left"><%= us.getUserName()%>--%>
-        <%--</td>--%>
-    <%--</tr>--%>
-    <%--<tr>--%>
-        <%--<td bgcolor="#faebd7">id</td>--%>
-        <%--<td colspan="4" align="left"><%= us.getId()%>--%>
-        <%--</td>--%>
-    <%--</tr>--%>
-    <%--<tr>--%>
-        <%--<td bgcolor="#faebd7">permission</td>--%>
-        <%--<td colspan="4" align="left"><%= us.getPermi()%>--%>
-        <%--</td>--%>
-    <%--</tr>--%>
-    <%--<tr>--%>
-        <%--<td rowspan="0">借阅图书情况</td>--%>
-        <%--<td>book id</td>--%>
-        <%--<td>book name</td>--%>
-        <%--<td>借阅日期</td>--%>
-        <%--<td>应归还日期</td>--%>
-    <%--</tr>--%>
 <table id="customers">
     <tr>
         <th >name</th>
@@ -189,13 +129,13 @@
         <tr>
             <td align="left">图书ID：</td>
             <td>
-                <input type="number" name="book_back_id"  />
+                <input type="number" name="back_book_id"  />
             </td>
         </tr>
         <tr  bgcolor="#faebd7">
             <td  colspan="2" align="center">
 
-                <input type="submit" value="还书"/>
+                <input type="submit" value="还书" onclick="return check(this)"/>
 
 
             </td>

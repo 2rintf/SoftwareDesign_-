@@ -20,7 +20,9 @@ public interface BookIODAO {
     public void updateBorrowId(Connection conn, BooksBorrow bb, Users user) throws SQLException;
 
 
-    public void insertBorrowRecord(Connection conn, BooksBorrow bb, Users user) throws SQLException;
+    public void updateBorrowIdToNull(Connection conn, BooksBorrow bb) throws SQLException;
+
+        public void insertBorrowRecord(Connection conn, BooksBorrow bb, Users user) throws SQLException;
 
     /**
      * 还书用方法

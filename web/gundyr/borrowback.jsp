@@ -10,6 +10,24 @@
 <head>
     <title>借/还书管理</title>
     <link rel="stylesheet" href="/css/login_layout.css" type="text/css"/>
+    <style type="text/css">
+        body{
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            /*align-items: center;*/
+        }
+        #bbT{
+            position: relative;
+            left:+20px;
+            top: +20px;
+            box-shadow: 2px 2px 9px 0px black;
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size:15px;
+            border:1px solid #98bf21;
+            padding:3px 7px 2px 7px;
+        }
+
+    </style>
 
     <script type="text/javascript">
         function check(form) {
@@ -28,11 +46,12 @@
     </script>
 </head>
 <body>
-这是借还书页面
+<h3>这是借还书页面</h3>
+
 
 
 <form action = "<%= request.getContextPath()%>/GetInfoServlet" method = "post" name = "getInfoForm">
-    <table  align = "center" border = "1" bordercolor = "silver" cellpadding = "5" cellspacing = "0">
+    <table id = "bbT">
         <tr>
             <td align="left">用户ID：</td>
             <%--限定了输入的学号范围--%>
@@ -42,8 +61,8 @@
         </tr>
         <tr bgcolor="#faebd7">
             <td colspan="2" align="center">
-                <input type="submit" name="确认" onclick = "return check(this)" />
-                <input type="reset" name="重置"/>
+                <input type="submit" name="确认" value="确认" onclick = "return check(this)" />
+                <input type="reset" name="重置" value="重置"/>
             </td>
         </tr>
 
