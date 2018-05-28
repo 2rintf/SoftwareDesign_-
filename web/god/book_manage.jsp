@@ -44,8 +44,8 @@
 </head>
 <body bgcolor="#CEE490">
 <ul>
-<li><a href="<%= request.getContextPath()%>/god/book_manage_add.jsp"  target = "index_right">新书入库</a></li>
-<li><a href="<%= request.getContextPath()%>/god/book_manage_delete.jsp"  target = "index_right">旧书退库</a></li>
+    <li><a href="<%= request.getContextPath()%>/god/book_manage_add.jsp" target="index_right">新书入库</a></li>
+    <li><a href="<%= request.getContextPath()%>/god/book_manage_delete.jsp" target="index_right">旧书退库</a></li>
 </ul>
 
 </body>

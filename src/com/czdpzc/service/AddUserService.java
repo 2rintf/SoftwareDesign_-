@@ -1,25 +1,27 @@
 package com.czdpzc.service;
 
-import com.czdpzc.dao.BookDAO;
-import com.czdpzc.dao.impl.BookDaoImpl;
-import com.czdpzc.entity.Books;
+import com.czdpzc.dao.UserDAO;
+import com.czdpzc.dao.impl.UserDaoImpl;
+import com.czdpzc.entity.Users;
 import com.czdpzc.utill.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AddBookService {
+public class AddUserService {
 
-    private BookDAO bookDAO = new BookDaoImpl();
+    private UserDAO userDAO = new UserDaoImpl();
 
-    public boolean addBook(Books books) {
+    public boolean addUser(Users users) {
         Connection conn = null;
         try {
             conn = ConnectionFactory.getInstance().makeConnection();
             conn.setAutoCommit(false);
 
-            bookDAO.save(conn, books);
+
+            userDAO.save(conn, users);
+
 
             conn.commit();
 
@@ -32,7 +34,6 @@ public class AddBookService {
                 e1.printStackTrace();
                 return false;
             }
-            return false;
         } finally {
             try {
                 conn.close();
@@ -44,37 +45,40 @@ public class AddBookService {
         return true;
     }
 
-    public long getBookId(Books books){
+    public long getAddUserId(Users users) {
         Connection conn = null;
         try {
             conn = ConnectionFactory.getInstance().makeConnection();
             conn.setAutoCommit(false);
+
             long help = 0;
 
-            ResultSet rs = bookDAO.getAddBookId(conn,books);
-            while (rs.next()){
+            ResultSet rs = userDAO.getAddUserId(conn, users);
+
+            while (rs.next()) {
                 help = rs.getLong(1);
                 return help;
             }
-
 
 
         } catch (SQLException e) {
             e.printStackTrace();
             try {
                 conn.rollback();
+
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
-        }finally {
+        } finally {
             try {
                 conn.close();
-
             } catch (SQLException e) {
                 e.printStackTrace();
 
             }
         }
+
+
         return 0;
     }
 }

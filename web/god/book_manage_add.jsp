@@ -8,21 +8,32 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="/css/borrow_back.css">
+    <link rel="stylesheet" href="/css/borrow_back.css"/>
 
     <script type="text/javascript">
-        function check(form) {
-            if (document.forms.addBookForm.in_book_name.value==""||
-                document.forms.addBookForm.in_book_writer.value==""||
-                document.forms.addBookForm.class_choose.value==""||
-                document.forms.addBookForm.in_book_pub.value==""){
-                alert("请完整填写入库图书信息！！！");
+        function checkAddBook(form) {
+            if (document.forms.addBookForm.in_book_name.value==""){
+                alert("请完整填写入库图书名称！！！");
                 document.forms.addBookForm.in_book_name.focus();
+
+                return false;
+            }else  if (document.forms.addBookForm.in_book_writer.value==""){
+                alert("请完整填写作者！！！");
                 document.forms.addBookForm.in_book_writer.focus();
-                document.forms.addBookForm.class_choose.focus();
+                return false;
+
+            }else if (document.forms.addBookForm.class_choose.value==""){
+
+                alert("请选择图书分类！！！"+ document.forms.addBookForm.class_choose.value);
+                // document.forms.addBookForm.class_choose.focus();
+                return false;
+
+            }else if (document.forms.addBookForm.in_book_pub.value==""){
+                alert("请完整填写出版社！！！");
                 document.forms.addBookForm.in_book_pub.focus();
                 return false;
-            }
+            }else
+                return true;
 
         }
     </script>
@@ -82,13 +93,14 @@
 
         <tr>
             <td>
-                <input type="submit" name="确认" value="确认" onclick = "return check(this)" />
+                <input type="submit" name="确认" value="确认" onclick = "return checkAddBook(this)" />
                 <input type="reset" name="重置" value="重置"/>
             </td>
         </tr>
     </table>
 
 </form>
+
 
 </body>
 </html>

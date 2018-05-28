@@ -13,10 +13,11 @@ import java.sql.*;
 public class UserDaoImpl implements UserDAO {
 
 
-
     /**
      * 新建并保存用户信息
-     *      添加姓名、密码、权限
+     * 添加姓名、权限
+     * 后台管理员使用
+     *
      * @param conn
      * @param user
      * @throws SQLException
@@ -24,12 +25,13 @@ public class UserDaoImpl implements UserDAO {
     @Override
     public void save(Connection conn, Users user) throws SQLException {
 
-        String sql = "INSERT INTO user_tbl(user_name,password,permission) VALUES (?,?,?)";
+        String sql = "INSERT INTO user_tbl(user_name,permission,add_date,password) VALUES (?,?,?,?)";
 
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1,user.getUserName());
-        ps.setString(2,user.getPassWord());
-        ps.setString(3,user.getPermi());
+        ps.setString(1, user.getUserName());
+        ps.setString(2, user.getPermi());
+        ps.setDate(3, user.getAddDate());
+        ps.setString(4,user.getPassWord());
 
         ps.execute();//执行
 
@@ -37,7 +39,8 @@ public class UserDaoImpl implements UserDAO {
 
     /**
      * 根据ID更新用户信息
-     *      更新姓名、密码、权限
+     * 更新姓名、密码、权限
+     *
      * @param conn
      * @param id
      * @param user
@@ -51,10 +54,10 @@ public class UserDaoImpl implements UserDAO {
 
         PreparedStatement ps = conn.prepareStatement(sql);
 
-        ps.setString(1,user.getUserName());
-        ps.setString(2,user.getPassWord());
-        ps.setString(3,user.getPermi());
-        ps.setLong(4,id);
+        ps.setString(1, user.getUserName());
+        ps.setString(2, user.getPassWord());
+        ps.setString(3, user.getPermi());
+        ps.setLong(4, id);
 
         ps.execute();//执行
     }
@@ -62,7 +65,8 @@ public class UserDaoImpl implements UserDAO {
 
     /**
      * 根据ID更新用户欠款信息
-     *      更新欠款字段
+     * 更新欠款字段
+     *
      * @param conn
      * @param id
      * @throws SQLException
@@ -71,7 +75,7 @@ public class UserDaoImpl implements UserDAO {
         String sql = "UPDATE user_tbl SET bill = 0 WHERE user_id = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setDouble(1,id);
+        ps.setDouble(1, id);
 
         ps.execute();
 
@@ -79,6 +83,7 @@ public class UserDaoImpl implements UserDAO {
 
     /**
      * 根据ID删除指定用户的信息
+     *
      * @param conn
      * @param user
      * @throws SQLException
@@ -88,7 +93,7 @@ public class UserDaoImpl implements UserDAO {
         String deleteSql = "DELETE FROM user_tbl WHERE user_id = ?";
         PreparedStatement ps = conn.prepareStatement(deleteSql);
 
-        ps.setLong(1,user.getId());
+        ps.setLong(1, user.getId());
         ps.execute();
 
     }
@@ -96,6 +101,7 @@ public class UserDaoImpl implements UserDAO {
 
     /**
      * 验证登陆用户
+     *
      * @param conn
      * @param user
      * @return
@@ -108,8 +114,8 @@ public class UserDaoImpl implements UserDAO {
         String sql = "SELECT * FROM user_tbl WHERE user_id = ? AND password = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setLong(1,user.getId());
-        ps.setString(2,user.getPassWord());
+        ps.setLong(1, user.getId());
+        ps.setString(2, user.getPassWord());
 
 
         return ps.executeQuery();//执行遍历查询，返回查询结果
@@ -118,20 +124,32 @@ public class UserDaoImpl implements UserDAO {
 
     /**
      * 通过user_id获取用户非敏感信息，存入user对象，用于借还书操作
+     *
      * @param conn
      * @param user
      * @return
      * @throws SQLException
      */
     @Override
-    public ResultSet getUserInfo(Connection conn, Users user) throws SQLException{
+    public ResultSet getUserInfo(Connection conn, Users user) throws SQLException {
 
         String sql = "SELECT user_name,bill,permission FROM user_tbl WHERE user_id = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setLong(1,user.getId());
+        ps.setLong(1, user.getId());
 
         return ps.executeQuery();
     }
 
+
+    @Override
+    public ResultSet getAddUserId(Connection conn, Users user) throws SQLException {
+        String sql = "SELECT user_id FROM user_tbl WHERE user_name = ? AND add_date = ?";
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, user.getUserName());
+        ps.setDate(2, user.getAddDate());
+
+        return ps.executeQuery();
+    }
 }

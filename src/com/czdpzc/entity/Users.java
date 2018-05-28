@@ -1,5 +1,6 @@
 package com.czdpzc.entity;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -12,6 +13,15 @@ public class Users extends IdEntity{
     private double bill;
     private String permi;
     private List<BooksBorrow> list = null;
+    private Date addDate = null;
+
+    public Date getAddDate() {
+        return addDate;
+    }
+
+    public void setAddDate(Date addDate) {
+        this.addDate = addDate;
+    }
 
     public String getUserName() {
         return userName;
@@ -53,6 +63,7 @@ public class Users extends IdEntity{
         this.list = list;
     }
 
+
     @Override
     public String toString() {
         return "Users{" +
@@ -61,6 +72,7 @@ public class Users extends IdEntity{
                 ", bill=" + bill +
                 ", permi='" + permi + '\'' +
                 ", list=" + list +
+                ", addDate=" + addDate +
                 ", id=" + id +
                 '}';
     }

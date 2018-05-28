@@ -9,8 +9,41 @@
 <html>
 <head>
     <title>用户管理</title>
+    <style type="text/css">
+        ul{
+            list-style-type:none;
+            margin: 0;
+            padding:0;
+            overflow:hidden;
+        }
+        li
+        {
+            float: left;
+        }
+        a:link,a:visited
+        {
+            display:block;
+            width:120px;
+            font-weight:bold;
+            color:#FFFFFF;
+            background-color:#bebebe;
+            text-align:center;
+            padding:4px;
+
+
+            text-decoration:none;
+            text-transform:uppercase;
+        }
+        a:hover,a:active
+        {
+            background-color:#cc0000;
+        }
+    </style>
 </head>
-<body>
-这是用户管理界面
+<body bgcolor="#CEE490">
+<ul>
+    <li><a href="<%= request.getContextPath()%>/god/user_manage_add.jsp" target="index_right">添加新用户</a></li>
+    <li><a href="<%= request.getContextPath()%>/god/user_manage_delete.jsp" target="index_right">删除老用户</a></li>
+</ul>
 </body>
 </html>

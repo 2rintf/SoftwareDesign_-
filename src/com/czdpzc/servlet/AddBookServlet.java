@@ -37,9 +37,11 @@ public class AddBookServlet extends HttpServlet {
         if (abs.addBook(books)){
             forward = "/god/add_book_success.jsp";
 
+            //获得新入库的图书的ID
             add_book_id = abs.getBookId(books);
 
             books.setId(add_book_id);
+            request.getSession().setAttribute("add_book_info",books);
 
         }else {
             forward = "/god/add_book_error.jsp";
