@@ -21,5 +21,7 @@ public interface BookDAO {
 
     public ResultSet getInfoFromBorrow(Connection conn, BooksBorrow bb,Users us) throws SQLException;
 
+    public ResultSet getAddBookId(Connection conn,Books books) throws SQLException;
+
 
 }

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.czdpzc.entity.Books" %><%--
   Created by IntelliJ IDEA.
   User: 2b
   Date: 2018/5/28
@@ -9,10 +9,27 @@
 <html>
 <head>
     <link rel="stylesheet" href="/css/borrow_back.css">
+
+    <script type="text/javascript">
+        function check(form) {
+            if (document.forms.addBookForm.in_book_name.value==""||
+                document.forms.addBookForm.in_book_writer.value==""||
+                document.forms.addBookForm.class_choose.value==""||
+                document.forms.addBookForm.in_book_pub.value==""){
+                alert("请完整填写入库图书信息！！！");
+                document.forms.addBookForm.in_book_name.focus();
+                document.forms.addBookForm.in_book_writer.focus();
+                document.forms.addBookForm.class_choose.focus();
+                document.forms.addBookForm.in_book_pub.focus();
+                return false;
+            }
+
+        }
+    </script>
 </head>
 <body bgcolor="#CEE490">
 
-<form action="">
+<form action="<%= request.getContextPath()%>/AddBookServlet" method="post" name="addBookForm">
 
 
     <table id="customers" align="center">
@@ -63,8 +80,14 @@
             </td>
         </tr>
 
-
+        <tr>
+            <td>
+                <input type="submit" name="确认" value="确认" onclick = "return check(this)" />
+                <input type="reset" name="重置" value="重置"/>
+            </td>
+        </tr>
     </table>
+
 </form>
 
 </body>

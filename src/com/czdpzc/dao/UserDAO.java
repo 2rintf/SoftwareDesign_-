@@ -1,7 +1,6 @@
 package com.czdpzc.dao;
 
 import com.czdpzc.entity.Users;
-import com.czdpzc.entity.user;
 import com.czdpzc.utill.ConnectionFactory;
 
 import java.sql.Connection;

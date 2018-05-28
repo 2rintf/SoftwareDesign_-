@@ -2,7 +2,7 @@ package com.czdpzc.dao.impl;
 
 import com.czdpzc.dao.UserDAO;
 import com.czdpzc.entity.Users;
-import com.czdpzc.entity.user;
+
 
 import java.sql.*;
 

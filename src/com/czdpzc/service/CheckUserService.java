@@ -3,7 +3,7 @@ package com.czdpzc.service;
 import com.czdpzc.dao.UserDAO;
 import com.czdpzc.dao.impl.UserDaoImpl;
 import com.czdpzc.entity.Users;
-import com.czdpzc.entity.user;
+
 import com.czdpzc.utill.ConnectionFactory;
 
 import java.sql.Connection;

@@ -1,7 +1,7 @@
 package com.czdpzc.servlet;
 
 import com.czdpzc.entity.Users;
-import com.czdpzc.entity.user;
+
 import com.czdpzc.service.CheckUserService;
 
 import javax.servlet.RequestDispatcher;

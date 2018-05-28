@@ -25,13 +25,14 @@ public class BookDaoImpl implements BookDAO {
     public void save(Connection conn, Books book) throws SQLException {
 
         String sql = "INSERT INTO tbl_book(book_name, book_class," +
-                " book_pub, book_writer) VALUES(?,?,?,?)";
+                " book_pub, book_writer,add_book_date) VALUES(?,?,?,?,?)";
 
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,book.getBookName());
         ps.setString(2,book.getBookClass());
         ps.setString(3,book.getBookPub());
         ps.setString(4,book.getBookWriter());
+        ps.setDate(5,book.getAddBookDate());
 
         ps.execute();
 
@@ -119,7 +120,7 @@ public class BookDaoImpl implements BookDAO {
     @Override
     public ResultSet getInfoFromBorrow(Connection conn, BooksBorrow bb, Users us) throws SQLException{
 
-        String sql = "SELECT book_name,borrow_date,back_date,book_id  FROM tbl_borrow WHERE book_id = ? OR user_id = ?";
+        String sql = "SELECT book_name,borrow_date,back_date,book_id FROM tbl_borrow WHERE book_id = ? OR user_id = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setLong(1,bb.getId());
@@ -128,6 +129,15 @@ public class BookDaoImpl implements BookDAO {
         return ps.executeQuery();
     }
 
+    @Override
+    public ResultSet getAddBookId(Connection conn, Books books) throws SQLException {
 
+        String sql = "SELECT book_id FROM tbl_book WHERE book_name = ? AND add_book_date = ?";
 
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1,books.getBookName());
+        ps.setDate(2,books.getAddBookDate());
+
+        return ps.executeQuery();
+    }
 }

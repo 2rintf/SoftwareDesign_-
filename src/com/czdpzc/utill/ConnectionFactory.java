@@ -11,7 +11,7 @@ import java.util.Properties;
 /**
  * @author czdpzc
  * 工具类，用于与数据库建立连接
- * 使用前，新建或修改 dbconfig.properties 文件，添加以下键值对：@driver、@dburl、@user、@password
+ * 使用前，新建或修改 dbconfig.properties 文件，添加以下键值对：@driver、@dburl、@users、@password
  * 使用：
  *      1.getInstance()获取实例；
  *      2.makeConnection()建立连接

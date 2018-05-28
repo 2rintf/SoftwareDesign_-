@@ -1,6 +1,8 @@
 package com.czdpzc.entity;
 
 
+import java.sql.Date;
+
 /**
  * 图书的DTO类
  * 属性：图书ID、图书名称、作者、分类、出版社、是否可借
@@ -11,8 +13,15 @@ public class Books extends IdEntity {
     private String bookClass;
     private String bookPub;
     private boolean ifBorrow;
+    private Date addBookDate;
 
+    public Date getAddBookDate() {
+        return addBookDate;
+    }
 
+    public void setAddBookDate(Date addBookDate) {
+        this.addBookDate = addBookDate;
+    }
 
     public String getBookName() {
         return bookName;
@@ -62,6 +71,7 @@ public class Books extends IdEntity {
                 ", bookClass='" + bookClass + '\'' +
                 ", bookPub='" + bookPub + '\'' +
                 ", ifBorrow=" + ifBorrow +
+                ", addBookDate=" + addBookDate +
                 ", id=" + id +
                 '}';
     }

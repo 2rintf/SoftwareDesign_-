@@ -76,6 +76,26 @@
         <url-pattern>/GetUserInfoServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddBookServlet</servlet-name>
+        <servlet-class>com.czdpzc.servlet.AddBookServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddBookServlet</servlet-name>
+        <url-pattern>/AddBookServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <servlet-class>com.czdpzc.servlet.DeleteBookServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DeleteBookServlet</servlet-name>
+        <url-pattern>/DeleteBookServlet</url-pattern>
+    </servlet-mapping>
+
 
 
     <!--编码方式的过滤器，设置为UTF-8-->
