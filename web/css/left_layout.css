@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+
+body{
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse:collapse;
+}
+
+
+ul{
+    list-style-type: square;
+    padding: 0;
+
+}
+
+a:link,a:visited
+{
+    display:block;
+    width:120px;
+    font-weight: bold;
+    color:#FFFFFF;
+    background-color:#A7C942;
+    text-align:left;
+    padding:4px;
+
+    /*无下划线*/
+    text-decoration:none;
+
+    /*定义只有大写*/
+    text-transform:uppercase;
+
+}
+a:hover,a:active
+{
+    background-color:#c84257;
+}

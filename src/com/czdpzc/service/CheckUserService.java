@@ -23,14 +23,15 @@ public class CheckUserService {
      * @param us
      * @return
      */
-    public  int check(Users us){
+    public  Users check(Users us){
         Connection conn = null;
-
+        Users help = new Users();
         try {
             conn = ConnectionFactory.getInstance().makeConnection();
             conn.setAutoCommit(false);
 
             ResultSet resultSet = userDAO.get(conn,us);//遍历查询后返回查询结果
+
 
             //resultSet.next()遍历查询结果，若有记录，返回true；若无查询记录，返回false，跳出循环
             while(resultSet.next()){
@@ -38,16 +39,18 @@ public class CheckUserService {
 //               System.out.println(resultSet.getInt(1));
 //               System.out.println(resultSet.getString(2));
 //               System.out.println(resultSet.getString(3));
-               Users help = new Users();
+
+               help.setUserName(resultSet.getString(2));
                help.setPermi(resultSet.getString(5));
 
-               if (help.getPermi().equals("stu") || help.getPermi().equals("tea")){
-                   return 1;
-               }else if (help.getPermi().equals("rcp")){
-                   return 2;
-               }else{
-                   return 3;
-               }
+//               if (help.getPermi().equals("stu") || help.getPermi().equals("tea")){
+//                   return 1;
+//               }else if (help.getPermi().equals("rcp")){
+//                   return 2;
+//               }else{
+//                   return 3;
+//               }
+                return help;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -63,7 +66,9 @@ public class CheckUserService {
                 e.printStackTrace();
             }
         }
-        return 0;
+//        return 0;
+        help.setPermi("silly");
+        return help;
 
     }
 

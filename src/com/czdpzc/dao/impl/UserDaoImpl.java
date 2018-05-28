@@ -105,10 +105,10 @@ public class UserDaoImpl implements UserDAO {
     public ResultSet get(Connection conn, Users user) throws SQLException {
 
 
-        String sql = "SELECT * FROM user_tbl WHERE user_name = ? AND password = ?";
+        String sql = "SELECT * FROM user_tbl WHERE user_id = ? AND password = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1,user.getUserName());
+        ps.setLong(1,user.getId());
         ps.setString(2,user.getPassWord());
 
 

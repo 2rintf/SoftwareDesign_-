@@ -25,28 +25,49 @@ public class CheckServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //获取表单信息
-        String uname = request.getParameter("uname");
+//        String uname = request.getParameter("uname");
+        long login_id = 0;
+        login_id = Long.parseLong(request.getParameter("login_id"));
         String upwd = request.getParameter("upwd");
 
-        //用于欢迎界面显示用户名字
-        request.getSession().setAttribute("uname",uname);
+
+
+
+
+
 
         String returnUri =request.getParameter("return_uri");
 
         RequestDispatcher rd = null;
         String forward = null;
 
-        if (uname == null || upwd == null){
-            request.setAttribute("msg","用户名或密码为空！");
+        if (login_id== 0 || upwd == null){
+            request.setAttribute("msg","ID或密码为空！");
             rd = request.getRequestDispatcher("/15/error.jsp");
             rd.forward(request,response);
         }
         else{
             Users us = new Users();
-            us.setUserName(uname);
+            us.setId(login_id);
             us.setPassWord(upwd);
+            int permission = 0;
 
-            int permission = check.check(us);
+
+            us = check.check(us);
+            us.setId(login_id);
+            //用于欢迎界面显示用户名字
+            request.getSession().setAttribute("uname",us.getUserName());
+
+            if (us.getPermi().equals("stu") || us.getPermi().equals("tea")){
+                  permission = 1;
+               }else if (us.getPermi().equals("rcp")){
+                   permission = 2;
+               }else if (us.getPermi().equals("god")){
+                   permission = 3;
+               }
+               else {
+                permission = 4;
+            }
 
             if (permission == 1) {
                 forward = "/normal/index_normal.jsp";

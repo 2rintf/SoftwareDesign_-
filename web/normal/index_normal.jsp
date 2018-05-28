@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>图书馆首页</title>
+
 </head>
 
 <%
@@ -21,14 +22,29 @@
     if (flag.equals("login_success_normal")){
 %>
 
-<frameset rows = "20%,*">
-    <frame src = "/normal/index_top.jsp">
-    <frameset cols="10%,*">
-        <frame src = "/normal/index_left.jsp">
-        <frame src = "/normal/index_right.jsp" name="index_right">
-    </frameset>
-</frameset>
+<%--<frameset rows = "20%,*">--%>
+    <%--<frame src = "/normal/index_top.jsp" noresize="noresize">--%>
+    <%--<frameset cols="10%,*">--%>
+        <%--<frame src = "/normal/index_left.jsp" noresize="noresize">--%>
+        <%--<frame src = "/normal/index_right.jsp" name="index_right" noresize="noresize">--%>
+    <%--</frameset>--%>
+<%--</frameset>--%>
 
+
+<frameset cols="10%,*,10%" frameborder = "no">
+
+    <frame>
+    <frameset rows = "20%,*">
+        <frame src="/normal/index_top.jsp" noresize="noresize" >
+        <frameset cols="10%,*">
+            <frame src="/normal/index_left.jsp">
+            <frame src="/normal/index_right.jsp" name="index_right" noresize="noresize">
+        </frameset>
+
+    </frameset>
+
+    <frame>
+</frameset>
 
 
 

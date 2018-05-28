@@ -66,6 +66,17 @@
         <url-pattern>/BackServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>GetUserInfoServlet</servlet-name>
+        <servlet-class>com.czdpzc.servlet.GetUserInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetUserInfoServlet</servlet-name>
+        <url-pattern>/GetUserInfoServlet</url-pattern>
+    </servlet-mapping>
+
+
 
     <!--编码方式的过滤器，设置为UTF-8-->
 

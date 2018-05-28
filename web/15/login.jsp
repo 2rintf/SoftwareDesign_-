@@ -13,8 +13,8 @@
 
     <script type="text/javascript">
         function check(form) {
-            if (document.forms.loginForm.uname.value==""){
-                alert("请输入用户名");
+            if (document.forms.loginForm.login_id.value==""||document.forms.loginForm.login_id.value<2018010000||document.forms.loginForm.login_id.value>2018109999){
+                alert("请输入正确的ID");
                 document.forms.loginForm.uname.focus();
                 return false;
             }
@@ -40,7 +40,8 @@
         </tr>
         <tr>
             <td>用户名：</td>
-            <td><input type="text" name = "uname"/> </td>
+            <td><input type="text" name = "login_id"/> </td>
+
         </tr>
         <tr >
             <td>密码：</td>

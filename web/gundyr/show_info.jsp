@@ -14,20 +14,26 @@
 <head>
 
     <link rel="stylesheet" href="/css/borrow_back.css">
+    <%--<link rel="stylesheet" href="/css/body_color.css">--%>
     <script type="text/javascript">
-        function check(form) {
-            if (document.forms.borrow_form.borrow_book_id.value==""||document.forms.borrow_form.borrow_book_id.value<=1000||document.forms.borrow_form.borrow_book_id.value>3000){
+        function checkBorrow(form) {
+            if (document.forms.borrow_form.borrow_book_id.value == "" || document.forms.borrow_form.borrow_book_id.value <= 1000 || document.forms.borrow_form.borrow_book_id.value > 3000) {
                 alert("请输入图书ID！请输入图书ID！范围在1000~2999");
                 document.forms.borrow_form.borrow_book_id.focus();
                 return false;
-            }else if (document.forms.back_form.back_book_id.value == ""|| document.forms.back_form.back_book_id.value<=1000||document.forms.back_form.back_book_id.value>3000){
-                alert("请输入图书ID！范围在1000~2999");
-                document.forms.back_form.back_book_id.focus();
             }
         }
+        function checkBack(form) {
+            if (document.forms.back_form.back_book_id.value == ""|| document.forms.back_form.back_book_id.value<=1000||document.forms.back_form.back_book_id.value>3000){
+                alert("请输入图书ID！范围在1000~2999");
+                document.forms.back_form.back_book_id.focus();
+                return false
+            }
+        }
+
     </script>
 </head>
-<body>
+<body bgcolor="#CEE490">
 
 <%
     Users us = (Users) request.getSession().getAttribute("us_info");
@@ -110,10 +116,10 @@
                 <input type="number" name="borrow_book_id"  />
             </td>
         </tr>
-        <tr  bgcolor="#faebd7">
+        <tr  >
             <td  colspan="2" align="center">
 
-                <input type="submit" value="借书" onclick = "return check(this)" />
+                <input type="submit" value="借书" onclick = "return checkBorrow(this)" />
 
             </td>
         </tr>
@@ -132,10 +138,10 @@
                 <input type="number" name="back_book_id"  />
             </td>
         </tr>
-        <tr  bgcolor="#faebd7">
+        <tr>
             <td  colspan="2" align="center">
 
-                <input type="submit" value="还书" onclick="return check(this)"/>
+                <input type="submit" value="还书" onclick="return checkBack(this)"/>
 
 
             </td>

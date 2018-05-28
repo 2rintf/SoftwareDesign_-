@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.czdpzc.entity.Users" %><%--
   Created by IntelliJ IDEA.
   User: 2b
   Date: 2018/5/25
@@ -8,27 +8,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>个人信息</title>
+  <link rel="stylesheet" href="/css/borrow_back.css"/>
+
 </head>
-<body>
-<form action = "<%= request.getContextPath()%>/GetUserInfoServlet" method = "post" name = "getInfoForm">
-    <table id = "bbT">
-        <tr>
-            <td align="left">用户ID：</td>
-            <%--限定了输入的学号范围--%>
-            <td>
-                <input type="number" name="uid" min="2018010000" max="2018109999" />
-            </td>
-        </tr>
-        <tr bgcolor="#faebd7">
-            <td colspan="2" align="center">
-                <input type="submit" name="确认" value="确认" onclick = "return check(this)" />
-                <input type="reset" name="重置" value="重置"/>
-            </td>
-        </tr>
+<body bgcolor="#CEE490">
+<form action = "<%= request.getContextPath()%>/GetUserInfoServlet" method = "post" name = "getUserInfoForm">
+    <h2>对以下用户进行查询吗？</h2>
+    <%--<table id="customers">--%>
+        <%--<tr>--%>
+            <%--<td><%= ((Users)(request.getSession().getAttribute("user_login"))).getId()%></td>--%>
+            <%--<td><%= ((Users)(request.getSession().getAttribute("user_login"))).getUserName()%></td>--%>
+        <%--</tr>--%>
+        <%--<tr  bgcolor="#faebd7" align="center">--%>
+            <%--<td colspan = "2"><input type="submit" value="是的，进行查询" /></td>--%>
+        <%--</tr>--%>
+    <%--</table>--%>
 
+    <fieldset>
+        <legend>查询用户信息</legend>
+        ID: <%= ((Users)(request.getSession().getAttribute("user_login"))).getId()%><br>
+        姓名：<%= ((Users)(request.getSession().getAttribute("user_login"))).getUserName()%><br>
+    </fieldset>
+    <input align="center" type="submit" value="是的，进行查询" />
 
-    </table>
 
 </form>
 </body>

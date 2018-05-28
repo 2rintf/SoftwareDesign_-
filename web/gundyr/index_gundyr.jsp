@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>柜台管理首页</title>
+
 </head>
 <%--<body>--%>
 
@@ -23,16 +24,29 @@
     if (flag.equals("login_success_gundyr")){
 %>
 
-<frameset rows = "20%,*">
-    <frame src = "/gundyr/index_top.jsp">
-    <frameset cols="10%,*">
-        <frame src = "/gundyr/index_left.jsp">
-        <frame src = "/gundyr/index_right.jsp" name="index_right">
+<%--<frameset rows = "20%,*">--%>
+    <%--<frame src = "/gundyr/index_top.jsp" noresize="noresize">--%>
+    <%--<frameset cols="10%,*">--%>
+        <%--<frame src = "/gundyr/index_left.jsp" noresize="noresize">--%>
+        <%--<frame src = "/gundyr/index_right.jsp" name="index_right" noresize="noresize">--%>
+    <%--</frameset>--%>
+<%--</frameset>--%>
+
+
+<frameset cols="10%,*,10%" frameborder = "no">
+
+    <frame>
+    <frameset rows = "20%,*">
+        <frame src="/gundyr/index_top.jsp" noresize="noresize" >
+        <frameset cols="10%,*">
+            <frame src="/gundyr/index_left.jsp">
+            <frame src="/gundyr/index_right.jsp" name="index_right" noresize="noresize">
+        </frameset>
+
     </frameset>
+
+    <frame>
 </frameset>
-
-
-
 
 <%
 }

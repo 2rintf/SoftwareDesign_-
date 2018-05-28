@@ -10,8 +10,8 @@
 <head>
     <title>后台管理</title>
 </head>
-<body>
-这是后台管理员页面。<br/>
+
+
 <%
     String flag="";
     Object obj = session.getAttribute("flag");
@@ -21,15 +21,40 @@
     }
     if (flag.equals("login_success_god")){
 %>
-<a href="<%= request.getContextPath()%>/LogoutServlet17">退出</a>
+
+<%--<frameset rows = "20%,*">--%>
+    <%--<frame src = "/god/index_top.jsp">--%>
+    <%--<frameset cols="10%,*">--%>
+        <%--<frame src = "/god/index_left.jsp">--%>
+        <%--<frame src = "/god/index_right.jsp" name="index_right">--%>
+    <%--</frameset>--%>
+<%--</frameset>--%>
+
+<frameset cols="10%,*,10%" frameborder = "no">
+
+    <frame>
+    <frameset rows = "20%,*">
+        <frame src="/god/index_top.jsp" noresize="noresize" >
+        <frameset cols="10%,*">
+            <frame src="/god/index_left.jsp">
+            <frame src="/god/index_right.jsp" name="index_right" noresize="noresize">
+        </frameset>
+
+    </frameset>
+
+    <frame>
+</frameset>
+
+
+
+
 <%
 }
 else{
 %>
-<a href="<%= request.getContextPath()%>/15/login.jsp">登陆</a>
+<a href="<%= request.getContextPath()%>/15/login.jsp" target="_top">登陆</a><br/>
 <%
 
     }
 %>
-</body>
 </html>

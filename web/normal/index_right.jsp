@@ -18,7 +18,7 @@
         }
     </style>
 </head>
-<body>
+<body bgcolor="#CEE490">
 <h1>
 <%
     out.println("欢迎你!"+request.getSession().getAttribute("uname")+"<br/>");

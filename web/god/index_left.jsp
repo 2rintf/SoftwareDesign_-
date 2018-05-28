@@ -8,17 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
     <link rel="stylesheet" href="/css/left_layout.css">
 </head>
 <body bgcolor="#A7C942">
+
 <ul>
-    <li><a href="<%= request.getContextPath()%>/normal/index_right.jsp"  target = "index_right">首页</a></li>
-    <li><a href="<%= request.getContextPath()%>/normal/user_info.jsp" target="index_right">用户信息查询</a></li>
-    <li><a href="<%= request.getContextPath()%>/normal/search.jsp" target="index_right">图书搜索</a></li>
+    <li><a href="<%= request.getContextPath()%>/god/index_right.jsp"  target = "index_right">首页</a></li>
+    <li><a href="<%= request.getContextPath()%>/god/book_manage.jsp" target="index_right">图书信息管理</a></li>
+    <li><a href="<%= request.getContextPath()%>/god/user_manage.jsp" target="index_right">用户信息管理</a></li>
     <li><a href="<%= request.getContextPath()%>/LogoutServlet17" target="_top">退出</a></li>
 </ul>
-
 
 
 

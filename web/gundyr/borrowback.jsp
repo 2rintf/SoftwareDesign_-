@@ -45,7 +45,7 @@
         }
     </script>
 </head>
-<body>
+<body bgcolor="#CEE490">
 <h3>这是借还书页面</h3>
 
 
@@ -59,7 +59,7 @@
                 <input type="number" name="uid" min="2018010000" max="2018109999" />
             </td>
         </tr>
-        <tr bgcolor="#faebd7">
+        <tr>
             <td colspan="2" align="center">
                 <input type="submit" name="确认" value="确认" onclick = "return check(this)" />
                 <input type="reset" name="重置" value="重置"/>
