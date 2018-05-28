@@ -10,9 +10,18 @@
 <head>
     <link rel="stylesheet" href="/css/borrow_back.css">
 </head>
-<body>
+<body bgcolor="#CEE490">
+
 <form action="">
+
+
     <table id="customers" align="center">
+        <tr align="center" >
+            <th  colspan="2">
+                新书入库
+            </th>
+
+        </tr>
         <tr>
             <th>
                 图书名称：
@@ -36,8 +45,12 @@
                 图书分类：
             </th>
             <td>
-                <input type="checkbox" name="class_choose" value="文学"/>文学
-                <input type="checkbox" name="class_choose" value="计算机"/>计算机
+                <input type="radio" name="class_choose" value="文学"/>文学
+                <input type="radio" name="class_choose" value="计算机"/>计算机<br>
+                <input type="radio" name="class_choose" value="经济"/>经济
+                <input type="radio" name="class_choose" value="数理科学&化学"/>数理科学、化学<br>
+                <input type="radio" name="class_choose" value="政治&法律"/>政治、法律
+                <input type="radio" name="class_choose" value="综合性图书"/>综合性图书
             </td>
         </tr>
 
@@ -49,6 +62,7 @@
                 <input type="text" name="in_book_pub">
             </td>
         </tr>
+
 
     </table>
 </form>
