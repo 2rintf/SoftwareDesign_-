@@ -127,6 +127,16 @@
         <url-pattern>/ModifyPasswordServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SearchBookServlet</servlet-name>
+        <servlet-class>com.czdpzc.servlet.SearchBookServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SearchBookServlet</servlet-name>
+        <url-pattern>/SearchBookServlet</url-pattern>
+    </servlet-mapping>
+
 
 
     <!--编码方式的过滤器，设置为UTF-8-->

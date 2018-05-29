@@ -110,14 +110,17 @@
             while (it.hasNext()) {
                 BooksBorrow help = (BooksBorrow) (it.next());
         %>
-        <td><%= help.getId()%>
-        </td>
-        <td><%= help.getBook_name()%>
-        </td>
-        <td><%= help.getBorrow_date()%>
-        </td>
-        <td><%= help.getBack_date()%>
-        </td>
+        <tr>
+            <td><%= help.getId()%>
+            </td>
+            <td><%= help.getBook_name()%>
+            </td>
+            <td><%= help.getBorrow_date()%>
+            </td>
+            <td><%= help.getBack_date()%>
+            </td>
+
+        </tr>
         <%
                 }
             }

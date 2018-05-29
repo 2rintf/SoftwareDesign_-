@@ -10,7 +10,7 @@
 <head>
     <title>欠款处理</title>
 </head>
-<body>
+<body bgcolor="#CEE490">
 这是欠款页面
 </body>
 </html>

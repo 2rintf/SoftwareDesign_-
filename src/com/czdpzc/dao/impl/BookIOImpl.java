@@ -28,7 +28,7 @@ public class BookIOImpl implements BookIODAO{
     @Override
     public void updateBorrowIdToNull(Connection conn, BooksBorrow bb) throws SQLException {
 
-        String sql = "UPDATE tbl_book SET borrow_id = NULL WHERE book_id = ?";
+        String sql = "UPDATE tbl_book SET borrow_id = 0 WHERE book_id = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -118,7 +118,11 @@ public class BookIOImpl implements BookIODAO{
 
     /**
      * @deprecated
+     *
+     * 暂时完成效果为如果所有书都借出去，才不可以借。
+     *
      * 还未完成，想法是保证每一本书图书馆都要留存一本，不能外接，即检查是否为最后一本。
+     * 可以实现，不难。
      *
      * @param conn
      * @param bb
@@ -126,19 +130,18 @@ public class BookIOImpl implements BookIODAO{
      * @throws SQLException
      */
     public boolean ifBookCanBorrow(Connection conn,BooksBorrow bb) throws SQLException{
-//        String sql = "SELECT * FROM tbl_book WHERE book_id = ?";
-//
-//        PreparedStatement ps = conn.prepareStatement(sql);
-//        ps.setLong(1,bb.getId());
-//
-//        ResultSet rs = ps.executeQuery();
-//
-//        if (rs.next()){
-//            return true;
-//        }else {
-//            return false;
-//        }
-        return true;
+        String sql = "SELECT * FROM tbl_book WHERE book_id = ? AND borrow_id != 0 ";
+
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setLong(1,bb.getId());
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()){
+            return false;
+        }else {
+            return true;
+        }
     }
 
     @Override

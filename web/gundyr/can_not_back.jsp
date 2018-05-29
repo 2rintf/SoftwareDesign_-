@@ -10,7 +10,7 @@
 <head>
     <title>还书失败</title>
 </head>
-<body>
+<body bgcolor="#CEE490">
 还书失败！<<br>
 用户没有借书记录.<<br>
 <a href="<%= request.getContextPath()%>/gundyr/index_right.jsp"  target = "index_right">返回首页</a><br/>

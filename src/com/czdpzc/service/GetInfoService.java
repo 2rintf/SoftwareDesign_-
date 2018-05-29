@@ -71,7 +71,7 @@ public class GetInfoService {
     public List<BooksBorrow> getBorrowBookInfo(BooksBorrow bb, Users us){
         Connection conn = null;
         List<BooksBorrow> list = new ArrayList<>();
-        BooksBorrow help = new BooksBorrow();
+        BooksBorrow help = null;
 
         try {
             conn = ConnectionFactory.getInstance().makeConnection();
@@ -81,6 +81,7 @@ public class GetInfoService {
 
             while(resultSet.next()){
 
+                help = new BooksBorrow();
 
                 help.setBook_name(resultSet.getString(1));
                 help.setBorrow_date(resultSet.getDate(2));

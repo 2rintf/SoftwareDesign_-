@@ -37,12 +37,14 @@
 
 <%
     Users us = (Users) request.getSession().getAttribute("us_info");
-//    BooksBorrow bb = (BooksBorrow) request.getSession().getAttribute("borrow_book_info");
+    BooksBorrow bb = (BooksBorrow) request.getSession().getAttribute("borrow_book_info");
 
 //    out.println(us.getUserName());
 //    out.println(us.getPermi());
 //    out.println(us.getList().isEmpty());
 //    List<BooksBorrow> list = us.getList();
+
+//    out.println(list.get(1).getUser_id());
 //    Iterator it = list.iterator();
 //    while (it.hasNext()) {
 //        out.println(((BooksBorrow) (it.next())).getId());
@@ -89,14 +91,16 @@
         while (it.hasNext()) {
             BooksBorrow help = (BooksBorrow) (it.next());
     %>
-    <td><%= help.getId()%>
-    </td>
-    <td><%= help.getBook_name()%>
-    </td>
-    <td><%= help.getBorrow_date()%>
-    </td>
-    <td><%= help.getBack_date()%>
-    </td>
+    <tr>
+        <td><%= help.getId()%>
+        </td>
+        <td><%= help.getBook_name()%>
+        </td>
+        <td><%= help.getBorrow_date()%>
+        </td>
+        <td><%= help.getBack_date()%>
+        </td>
+    </tr>
     <%
         }
         }

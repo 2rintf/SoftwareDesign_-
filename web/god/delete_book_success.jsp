@@ -2,14 +2,12 @@
   Created by IntelliJ IDEA.
   User: 2b
   Date: 2018/5/29
-  Time: 10:52
+  Time: 18:22
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>删除成功</title>
-    <link rel="stylesheet" href="/css/borrow_back.css"/>
     <style type="text/css">
         ul{
             list-style-type:none;
@@ -40,12 +38,14 @@
             background-color:#cc0000;
         }
     </style>
+
 </head>
 <body bgcolor="#CEE490">
-
-<h3>删除成功！</h3>
+成功删除！<br>
 <ul>
-    <li><a href="<%= request.getContextPath()%>/god/index_right.jsp"  target = "index_right">返回首页</a></li>
+    <li><a href="<%= request.getContextPath()%>/god/book_manage_delete.jsp"  target = "index_right">继续旧书退库</a><br/></li>
+    <li><a href="<%= request.getContextPath()%>/god/index_right.jsp"  target = "index_right">返回首页</a><br/></li>
 </ul>
+
 </body>
 </html>

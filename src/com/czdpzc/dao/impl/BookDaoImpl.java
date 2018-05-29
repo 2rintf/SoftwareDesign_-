@@ -96,8 +96,8 @@ public class BookDaoImpl implements BookDAO {
     @Override
     public ResultSet get(Connection conn, Books book) throws SQLException {
 
-        String sql = "SELECT * FROM tbl_book WHERE book_name LIKE ? OR book_class LIKE ? OR " +
-                "book_pub LIKE ? OR book_writer LIKE ? OR book_id like ?";
+        String sql = "SELECT * FROM tbl_book WHERE book_name LIKE ? AND book_class LIKE ? AND " +
+                "book_pub LIKE ? AND book_writer LIKE ? ";
 
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1,"%"+book.getBookName()+"%");

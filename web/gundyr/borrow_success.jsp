@@ -10,7 +10,7 @@
 <head>
     <title>成功借书</title>
 </head>
-<body>
+<body bgcolor="#CEE490">
 借书成功<br>
 <a href="<%= request.getContextPath()%>/gundyr/index_right.jsp"  target = "index_right">返回首页</a><br/>
 </body>

@@ -106,5 +106,69 @@ public class BorrowService {
 
         return bb;
     }
+
+    public boolean ifBorrow(BooksBorrow booksBorrow){
+        Connection conn = null;
+        boolean x = false;
+        try {
+            conn = ConnectionFactory.getInstance().makeConnection();
+            conn.setAutoCommit(false);
+
+            x = bookIODAO.ifBookCanBorrow(conn,booksBorrow);
+
+            conn.commit();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            try {
+                conn.rollback();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        }finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return x;
+    }
+
+    public boolean ifBookExist(BooksBorrow booksBorrow){
+        Connection conn = null;
+//        boolean x = false;
+        try {
+            conn = ConnectionFactory.getInstance().makeConnection();
+            conn.setAutoCommit(false);
+
+            ResultSet resultSet = bookIODAO.getBorrowBookName(conn,booksBorrow);
+
+            if (resultSet.next()){
+                return true;
+            }else{
+                return false;
+            }
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            try {
+                conn.rollback();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        }finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
 }
 

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 @WebServlet(name = "BackServlet")
 public class BackServlet extends HttpServlet {
@@ -25,23 +27,40 @@ public class BackServlet extends HttpServlet {
 
         bb.setId(Long.parseLong(request.getParameter("back_book_id")));
 
-        String forward = null;
+        String forward = "gg";
         RequestDispatcher rd = null;
 
         if (us.getList().size() == 0){
             forward = "/gundyr/can_not_back.jsp";
         }else {
 
-            //更新总图书表的借阅标记borrow_id
-            bs.updateBorrowIdToNull(us, bb);
-            //获取应归还日期，与今日日期比较，计算bill
-            double bill = bs.computeBill(bb, us);
-            //更新用户表的bill
-            bs.updateBill(us, bill);
-            //删除借阅表中的借阅记录，根据book_id
-            bs.deleteBorrowRecord(bb);
+            List<BooksBorrow> list = us.getList();
+            BooksBorrow help = new BooksBorrow();
 
-            forward = "/gundyr/back_success.jsp";
+            Iterator it = list.iterator();
+
+            while (it.hasNext()){
+                help = (BooksBorrow) (it.next());
+
+                if (help.getId() == bb.getId()){
+                    //更新总图书表的借阅标记borrow_id
+                    bs.updateBorrowIdToNull(us, bb);
+                    //获取应归还日期，与今日日期比较，计算bill
+                    double bill = bs.computeBill(bb, us);
+                    //更新用户表的bill
+                    bs.updateBill(us, bill);
+                    //删除借阅表中的借阅记录，根据book_id
+                    bs.deleteBorrowRecord(bb);
+
+                    forward = "/gundyr/back_success.jsp";
+                }
+            }
+
+            if (forward.equals("gg")){
+                forward = "/gundyr/back_error.jsp";
+            }
+
+
         }
 
         rd = request.getRequestDispatcher(forward);

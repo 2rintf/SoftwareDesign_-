@@ -17,7 +17,7 @@
                 alert("请输入图书ID！请输入图书ID！范围在1000~2999");
                 document.forms.delete_user_form.delete_user_id.focus();
                 return false;
-            }else if (document.forms.delete_user_form.delete_user_id.value == <%= ((Users)(request.getSession().getAttribute("user_login"))).getId()%>){
+            }else if (document.forms.delete_user_form.delete_user_id.value == document.forms.delete_user_form.this_id.value){
                 alert("QAQ你正在删除你自己...");
                 document.forms.delete_user_form.delete_user_id.focus();
                 return false;
@@ -38,7 +38,7 @@
             <td align="left">用户ID：</td>
             <td>
                 <input type="number" name="delete_user_id"  />
-                <input type="hidden" name="this_id" value="<%= ((Users)(request.getSession().getAttribute("user_login"))).getId()%>">
+                <input type="hidden" name="this_id" value="<%= Long.toString(((Users)(request.getSession().getAttribute("user_login"))).getId())%>">
             </td>
         </tr>
         <tr>

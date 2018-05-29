@@ -2,14 +2,13 @@
   Created by IntelliJ IDEA.
   User: 2b
   Date: 2018/5/29
-  Time: 10:52
+  Time: 17:53
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>删除成功</title>
-    <link rel="stylesheet" href="/css/borrow_back.css"/>
+
     <style type="text/css">
         ul{
             list-style-type:none;
@@ -42,10 +41,10 @@
     </style>
 </head>
 <body bgcolor="#CEE490">
-
-<h3>删除成功！</h3>
 <ul>
-    <li><a href="<%= request.getContextPath()%>/god/index_right.jsp"  target = "index_right">返回首页</a></li>
+    还书失败！此用户无这本书的借阅信息!<<br>
+    <li><a href="<%= request.getContextPath()%>/gundyr/index_right.jsp"  target = "index_right">返回首页</a></li>
+
 </ul>
 </body>
 </html>
