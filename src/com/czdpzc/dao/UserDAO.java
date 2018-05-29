@@ -12,7 +12,7 @@ public interface UserDAO {
     //定义接口
     public void save(Connection conn,Users user) throws SQLException;
 
-    public void update(Connection conn, long id,Users user) throws SQLException;
+    public void update(Connection conn,Users user) throws SQLException;
 
 //    public void billUpdate(Connection conn,long id) throws SQLException;
 

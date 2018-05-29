@@ -16,6 +16,7 @@
     <li><a href="<%= request.getContextPath()%>/normal/index_right.jsp"  target = "index_right">首页</a></li>
     <li><a href="<%= request.getContextPath()%>/normal/user_info.jsp" target="index_right">用户信息查询</a></li>
     <li><a href="<%= request.getContextPath()%>/normal/search.jsp" target="index_right">图书搜索</a></li>
+    <li><a href="<%= request.getContextPath()%>/normal/modify_password.jsp" target="index_right">修改密码</a></li>
     <li><a href="<%= request.getContextPath()%>/LogoutServlet17" target="_top">退出</a></li>
 </ul>
 

@@ -23,6 +23,36 @@
             }
         }
     </script>
+    <style type="text/css">
+        ul{
+            list-style-type:none;
+            margin: 0;
+            padding:0;
+            overflow:hidden;
+        }
+        li
+        {
+            float: left;
+        }
+        a:link,a:visited
+        {
+            display:block;
+            width:120px;
+            font-weight:bold;
+            color:#FFFFFF;
+            background-color:#bebebe;
+            text-align:center;
+            padding:4px;
+
+
+            text-decoration:none;
+            text-transform:uppercase;
+        }
+        a:hover,a:active
+        {
+            background-color:#cc0000;
+        }
+    </style>
 
 </head>
 <body bgcolor="#CEE490">
@@ -93,7 +123,10 @@
             }
         %>
     </table>
+    <br>
 
-    <a href="<%= request.getContextPath()%>/normal/index_right.jsp"  target = "index_right">返回首页</a><br/>
+    <ul>
+    <li><a href="<%= request.getContextPath()%>/normal/index_right.jsp"  target = "index_right">返回首页</a></li>
+    </ul>
 </body>
 </html>

@@ -117,6 +117,16 @@
         <url-pattern>/DeleteUserServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ModifyPasswordServlet</servlet-name>
+        <servlet-class>com.czdpzc.servlet.ModifyPasswordServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ModifyPasswordServlet</servlet-name>
+        <url-pattern>/ModifyPasswordServlet</url-pattern>
+    </servlet-mapping>
+
 
 
     <!--编码方式的过滤器，设置为UTF-8-->

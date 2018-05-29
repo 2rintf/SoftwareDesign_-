@@ -38,8 +38,8 @@ public class UserDaoImpl implements UserDAO {
     }
 
     /**
-     * 根据ID更新用户信息
-     * 更新姓名、密码、权限
+     * 更新用户密码
+     *      用于普通用户修改密码
      *
      * @param conn
      * @param id
@@ -47,17 +47,15 @@ public class UserDaoImpl implements UserDAO {
      * @throws SQLException
      */
     @Override
-    public void update(Connection conn, long id, Users user) throws SQLException {
+    public void update(Connection conn, Users user) throws SQLException {
 
-        String sql = "UPDATE user_tbl SET user_name = ?,password = ?," +
-                "permission = ? WHERE user_id = ?";
+        String sql = "UPDATE user_tbl SET password = ? WHERE user_id = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
 
-        ps.setString(1, user.getUserName());
-        ps.setString(2, user.getPassWord());
-        ps.setString(3, user.getPermi());
-        ps.setLong(4, id);
+
+        ps.setString(1, user.getPassWord());
+        ps.setLong(2, user.getId());
 
         ps.execute();//执行
     }
