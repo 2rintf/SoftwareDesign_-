@@ -79,9 +79,11 @@ public class CheckServlet extends HttpServlet {
             } else if (permission == 2) {
                 forward = "/gundyr/index_gundyr.jsp";
                 request.getSession().setAttribute("flag","login_success_gundyr");
+                request.getSession().setAttribute("user_login",us);
             } else if (permission == 3) {
                 forward = "/god/index_god.jsp";
                 request.getSession().setAttribute("flag","login_success_god");
+                request.getSession().setAttribute("user_login",us);
             } else {
                 request.setAttribute("msg", "用户名或者密码错误！请重新登陆");
                 request.getSession().setAttribute("flag","login_error");
