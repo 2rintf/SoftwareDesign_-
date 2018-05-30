@@ -34,7 +34,7 @@
 <frameset cols="10%,*,10%" frameborder = "no">
 
     <frame>
-    <frameset rows = "20%,*">
+    <frameset rows = "25%,*">
         <frame src="/normal/index_top.jsp" noresize="noresize" >
         <frameset cols="10%,*">
             <frame src="/normal/index_left.jsp">

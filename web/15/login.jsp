@@ -8,8 +8,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+
+    <link rel="stylesheet" href="/css/borrow_back.css">
+    <%--<link rel="stylesheet" href="/css/login_layout.css">--%>
+    <style type="text/css">
+        #login_title{
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            /*width:100%;*/
+            border-collapse:collapse;
+            font-size:30px;
+            margin:auto;
+            text-align:-webkit-center;
+            color:coral
+        }
+        #author{
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+            /*width:100%;*/
+            border-collapse:collapse;
+            font-size:15px;
+            margin:auto;
+            text-align: -webkit-center;
+            color:coral
+
+        }
+
+    </style>
+
+
     <title>login</title>
-    <%--<link href="/css/login_layout.css" rel="stylesheet" type="text/css">--%>
 
     <script type="text/javascript">
         function check(form) {
@@ -27,28 +53,33 @@
         }
     </script>
 </head>
-<body>
+<body bgcolor="#CEE490">
 
+<br>
+<div id="login_title">
+    图书管理系统
+</div>
+<br>
 
 <form action="<%= request.getContextPath()%>/CheckServlet" method="post" name="loginForm">
 
-    <table align="center" border = "1" bordercolor = "silver" cellpadding="5" cellspacing="0" >
+    <table  id="loginTable" align="center" border = "1" bordercolor = "#E4F2C1" cellpadding = "5" cellspacing = "0">
         <tr>
-            <td colspan="2"align="center" bgcolor="#f0ffff">
+            <th colspan="2"align="center" bgcolor="#A7C942">
                 用户登陆
-            </td>
+            </th>
         </tr>
         <tr>
-            <td>用户名：</td>
+            <th bgcolor="#A7C942">用户名：</th>
             <td><input type="text" name = "login_id"/> </td>
 
         </tr>
         <tr >
-            <td>密码：</td>
+            <th bgcolor="#A7C942">密码：</th>
             <td><input type = "password" name = "upwd"/></td>
         </tr>
-        <tr bgcolor="#faebd7">
-            <td colspan="2"align="center">
+        <tr >
+            <td colspan="2"align="center" bgcolor="#A7C942">
                 <input type ="submit" name="submit" onclick="return check(this);"/>
                 <input type="reset" name="reset" />
             </td>
@@ -57,5 +88,9 @@
     </table>
 
 </form>
+
+<div id="author">
+    by czd B15011925
+</div>
 </body>
 </html>
