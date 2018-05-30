@@ -59,13 +59,18 @@
         </td>
     </tr>
     <tr>
-        <th >id</th>
+        <th >Id</th>
         <td colspan="4"><%= us.getId()%>
         </td>
     </tr>
     <tr>
-        <th >permission</th>
+        <th >Permission</th>
         <td colspan="4"><%= us.getPermi()%>
+        </td>
+    </tr>
+    <tr>
+        <th>Bill</th>
+        <td colspan="4"><%= us.getBill()%>
         </td>
     </tr>
     <tr>

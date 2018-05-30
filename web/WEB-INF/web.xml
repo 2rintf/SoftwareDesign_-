@@ -137,6 +137,26 @@
         <url-pattern>/SearchBookServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>BillServlet</servlet-name>
+        <servlet-class>com.czdpzc.servlet.BillServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BillServlet</servlet-name>
+        <url-pattern>/BillServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BillInfoServlet</servlet-name>
+        <servlet-class>com.czdpzc.servlet.BillInfoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BillInfoServlet</servlet-name>
+        <url-pattern>/BillInfoServlet</url-pattern>
+    </servlet-mapping>
+
 
 
     <!--编码方式的过滤器，设置为UTF-8-->

@@ -14,7 +14,7 @@ public interface UserDAO {
 
     public void update(Connection conn,Users user) throws SQLException;
 
-//    public void billUpdate(Connection conn,long id) throws SQLException;
+    public void billUpdate(Connection conn,Users users) throws SQLException;
 
     public void delete(Connection conn,Users user) throws SQLException;
 

@@ -88,6 +88,11 @@
             </td>
         </tr>
         <tr>
+            <th >bill</th>
+            <td colspan="4"><%= us.getBill()%>
+            </td>
+        </tr>
+        <tr>
             <th rowspan="0">借阅图书情况</th>
             <th>book id</th>
             <th>book name</th>

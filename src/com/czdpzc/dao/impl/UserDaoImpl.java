@@ -42,7 +42,6 @@ public class UserDaoImpl implements UserDAO {
      *      用于普通用户修改密码
      *
      * @param conn
-     * @param id
      * @param user
      * @throws SQLException
      */
@@ -63,17 +62,18 @@ public class UserDaoImpl implements UserDAO {
 
     /**
      * 根据ID更新用户欠款信息
-     * 更新欠款字段
+     *   清零欠款
      *
      * @param conn
      * @param id
      * @throws SQLException
      */
-    public void billUpdate(Connection conn, long id) throws SQLException {
+    @Override
+    public void billUpdate(Connection conn, Users users) throws SQLException {
         String sql = "UPDATE user_tbl SET bill = 0 WHERE user_id = ?";
 
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setDouble(1, id);
+        ps.setDouble(1, users.getId());
 
         ps.execute();
 
