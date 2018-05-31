@@ -9,6 +9,36 @@
 <html>
 <head>
     <title>图书馆首页</title>
+    <style type="text/css">
+        ul{
+            list-style-type:none;
+            margin: 0;
+            padding:0;
+            overflow:hidden;
+        }
+        li
+        {
+            float: left;
+        }
+        a:link,a:visited
+        {
+            display:block;
+            width:120px;
+            font-weight:bold;
+            color:#FFFFFF;
+            background-color:#bebebe;
+            text-align:center;
+            padding:4px;
+
+
+            text-decoration:none;
+            text-transform:uppercase;
+        }
+        a:hover,a:active
+        {
+            background-color:#cc0000;
+        }
+    </style>
 
 </head>
 
@@ -52,7 +82,9 @@
 }
 else{
 %>
-<a href="<%= request.getContextPath()%>/15/login.jsp" target="_top">登陆</a><br/>
+<ul>
+    <li><a href="<%= request.getContextPath()%>/15/login.jsp" target="_top">非对应权限，请重新登陆！！！</a></li>
+</ul>
 <%
 
     }

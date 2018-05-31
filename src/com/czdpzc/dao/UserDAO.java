@@ -23,4 +23,6 @@ public interface UserDAO {
     public ResultSet getUserInfo(Connection conn, Users user) throws SQLException;
 
     public ResultSet getAddUserId(Connection conn, Users user) throws SQLException;
+
+
 }

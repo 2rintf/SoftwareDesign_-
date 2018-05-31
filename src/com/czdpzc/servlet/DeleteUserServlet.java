@@ -25,10 +25,17 @@ public class DeleteUserServlet extends HttpServlet {
 
         users.setId(Long.parseLong(request.getParameter("delete_user_id")));
 
-        //删除user_tbl的用户
-        dus.deleteUser(users);
+        //查询是否有这个用户
+       if(!(dus.ifUserExist(users))) {
+           forward = "/god/delete_user_error.jsp";
+       }else {
 
-        forward = "/god/delete_user_success.jsp";
+           //删除user_tbl的用户
+           dus.deleteUser(users);
+
+           forward = "/god/delete_user_success.jsp";
+
+       }
         rd = request.getRequestDispatcher(forward);
         rd.forward(request,response);
 

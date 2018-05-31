@@ -14,7 +14,7 @@
     <script type="text/javascript">
         function checkDeleteUserId(form) {
             if (document.forms.delete_user_form.delete_user_id.value==""||document.forms.delete_user_form.borrow_user_id.value<=1000||document.forms.delete_user_form.delete_user_id.value>3000){
-                alert("请输入图书ID！请输入图书ID！范围在1000~2999");
+                alert("请输入用户ID！");
                 document.forms.delete_user_form.delete_user_id.focus();
                 return false;
             }else if (document.forms.delete_user_form.delete_user_id.value == document.forms.delete_user_form.this_id.value){

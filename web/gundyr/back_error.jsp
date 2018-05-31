@@ -42,7 +42,7 @@
 </head>
 <body bgcolor="#CEE490">
 <ul>
-    还书失败！此用户无这本书的借阅信息!<<br>
+    还书失败！此用户无这本书的借阅信息!<br>
     <li><a href="<%= request.getContextPath()%>/gundyr/index_right.jsp"  target = "index_right">返回首页</a></li>
 
 </ul>

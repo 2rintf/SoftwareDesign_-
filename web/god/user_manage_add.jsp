@@ -15,15 +15,17 @@
         function checkAddBook(form) {
             if (document.forms.addUserForm.in_user_name.value==""){
                 alert("请完整填写姓名！！！");
-                document.forms.addBookForm.in_user_name.focus();
+                document.forms.addUserForm.in_user_name.focus();
 
                 return false;
             }else  if (document.forms.addUserForm.class_choose.value==""){
                 alert("请选择身份权限！！！");
                 return false;
 
-            }else
+            }else{
                 return true;
+            }
+
 
         }
     </script>
